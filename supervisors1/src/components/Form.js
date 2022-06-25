@@ -24,7 +24,7 @@ function Form(props) {
       phone: supervisorPhone,
       selection: supervisorSelect,
     };
-    console.log(supervisorData);
+    props.onAddSupervisor(supervisorData);
   }
   return (
     <div>
