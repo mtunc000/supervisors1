@@ -405,18 +405,32 @@ function Supervisors(props) {
   ];
   console.log(supervisors);
 
+  //the below line was filtered according to the number jurisdictions...
   // const juristictionNumber = supervisors.filter((m) => !isNaN(m.jurisdiction));
+
+  // Array of objects are filtered according to letter jurisdiction
   const juristictionNumber1 = supervisors.filter((m) => isNaN(m.jurisdiction));
 
   //console.log(juristictionNumber);
   console.log(juristictionNumber1);
 
+  //Array of filtered objects mapped according to the jurisdiction, last name and first name
   const jurisdictions = juristictionNumber1.map((j) => ({
     jurisdiction: j.jurisdiction,
     lastName: j.lastName,
     firstName: j.firstName,
   }));
 
+  //sorted by first jurisdiction, second last name and then third first name
+  jurisdictions.sort(function (a, b) {
+    if (a.jurisdiction === b.jurisdiction) {
+      if (a.lastName === b.lastName) {
+        return a.firstName > b.firstName ? 1 : -1;
+      }
+      return a.lastName > b.lastName ? 1 : -1;
+    }
+    return a.jurisdiction > b.jurisdiction ? 1 : -1;
+  });
   console.log(jurisdictions);
 
   return <div></div>;
