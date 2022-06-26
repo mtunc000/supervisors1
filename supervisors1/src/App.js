@@ -1,7 +1,7 @@
 import React from "react";
+//import { Route } from "react-router-dom";
 import Form from "./components/Form";
 import classes from "./App.module.css";
-import Supervisors from "./components/Supervisors";
 
 function App() {
   function addSupervisorHandler(supervisorData) {
@@ -10,15 +10,14 @@ function App() {
       {
         method: "POST",
         body: JSON.stringify(supervisorData),
-        // headers: { "Content type": "application/json" },
       }
     );
   }
+
   return (
     <div className={classes.app}>
       <h1 className={classes.h1}> Supervisors</h1>
       <Form onAddSupervisor={addSupervisorHandler} />
-      <Supervisors />
     </div>
   );
 }

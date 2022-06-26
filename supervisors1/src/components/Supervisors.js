@@ -1,5 +1,3 @@
-//import { getValue } from "@testing-library/user-event/dist/utils";
-
 function Supervisors(props) {
   const supervisors = [
     {
@@ -416,6 +414,7 @@ function Supervisors(props) {
 
   //Array of filtered objects mapped according to the jurisdiction, last name and first name
   const jurisdictions = juristictionNumber1.map((j) => ({
+    id: j.id,
     jurisdiction: j.jurisdiction,
     lastName: j.lastName,
     firstName: j.firstName,
@@ -431,9 +430,28 @@ function Supervisors(props) {
     }
     return a.jurisdiction > b.jurisdiction ? 1 : -1;
   });
-  console.log(jurisdictions);
 
-  return <div></div>;
+  function supervisorSelectOptions(jurisdictions) {
+    return jurisdictions.map((juri) => (
+      <option
+        key={juri.id}
+        value={`Jurisdiction: ${juri.jurisdiction}, ${juri.lastName}, ${juri.firstName}`}
+      >
+        Jurisdiction: {juri.jurisdiction},{juri.lastName},{juri.firstName}
+      </option>
+    ));
+  }
+
+  return (
+    <div>
+      <div>
+        <label htmlFor="supervisor">Supervisor</label>
+        <select name="supervisor" placeholder="select" required id="supervisor">
+          {supervisorSelectOptions(jurisdictions)}
+        </select>
+      </div>
+    </div>
+  );
 }
 
 export default Supervisors;
