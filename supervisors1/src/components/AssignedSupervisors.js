@@ -9,6 +9,10 @@ const AssignedSupervisors = (props) => {
       .then((response) => {
         return response.json();
       })
+      .catch((err) => {
+        console.log(err);
+        return {};
+      })
       .then((data) => {
         const assignedSupervisors = [];
 

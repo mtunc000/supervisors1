@@ -15,6 +15,8 @@ function Form(props) {
       enteredLasttName.trim().length === 0
     ) {
       return;
+    } else {
+      alert("Your request successfully submitted");
     }
     console.log(
       enteredFirstName,
