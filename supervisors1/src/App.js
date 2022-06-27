@@ -1,7 +1,8 @@
 import React from "react";
-//import { Route } from "react-router-dom";
+
 import Form from "./components/Form";
 import classes from "./App.module.css";
+import AssignedSupervisors from "./components/AssignedSupervisors";
 
 function App() {
   function addSupervisorHandler(supervisorData) {
@@ -17,7 +18,9 @@ function App() {
   return (
     <div className={classes.app}>
       <h1 className={classes.h1}> Supervisors</h1>
+
       <Form onAddSupervisor={addSupervisorHandler} />
+      <AssignedSupervisors />
     </div>
   );
 }

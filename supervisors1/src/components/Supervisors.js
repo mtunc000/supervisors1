@@ -1,3 +1,6 @@
+// import { useState } from "react";
+// import AssignedSupervisors from "./AssignedSupervisors";
+
 function Supervisors(props) {
   const supervisors = [
     {
@@ -430,8 +433,10 @@ function Supervisors(props) {
     }
     return a.jurisdiction > b.jurisdiction ? 1 : -1;
   });
+  console.log(jurisdictions);
 
   function supervisorSelectOptions(jurisdictions) {
+    //dynamic loading of jurisdiction selection
     return jurisdictions.map((juri) => (
       <option
         key={juri.id}
@@ -444,12 +449,11 @@ function Supervisors(props) {
 
   return (
     <div>
-      <div>
-        <label htmlFor="supervisor">Supervisor</label>
-        <select name="supervisor" placeholder="select" required id="supervisor">
-          {supervisorSelectOptions(jurisdictions)}
-        </select>
-      </div>
+      <label htmlFor="supervisor">Supervisor</label>
+      <div></div>
+      <select name="supervisor" placeholder="select" required id="supervisor">
+        {supervisorSelectOptions(jurisdictions)}
+      </select>
     </div>
   );
 }
